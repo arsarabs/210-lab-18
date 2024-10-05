@@ -39,13 +39,31 @@ int main() {
 	return 0;
 }
 
-//Function Bodiesvoid output(Review*& h, float& avg);
+//Function Bodies
+void output(Review*& h, float& avg) {
+	//define some local variables
+	int count = 1;           // Counter to number each review
+	float total = 0.0;       // Variable to accumulate total ratings
+	Review* current = h;    // Pointer to traverse the list
+	//check to see if list empty
+	(!h) {
+		cout << "No reviews!" << endl;
+		return;
+	}
+	//Now, we create a while loop to transverse the list
+	while (current) {
+		cout << "      > Review #" << count++ << ": " << current->rating << ": " << current->comments << endl;
+		total += current->rating; // add current rating to total
+		current = current->next; //move to next review
+	}
+	average = total / (count - 1); //calculate average
+}
 void addReviewHead(Review*& h, float rating, string comments) {
 	//add code
 }
 
 void addReviewTail(Review*& h, float rating, string comments) {
-	//add code
+
 }
 void deleteReview(Review*& h) {
 	//add code

@@ -133,7 +133,8 @@ int getUserChoice() {
 	return choice;
 }
 float validateRating() {
-	//add code
+	float rating = 0.0;
+	return rating;
 }
 string getComments() {
 	string comments; 
@@ -142,5 +143,25 @@ string getComments() {
 	return comments; 
 }
 bool getOneMoreReview() {
-	
+	char response = 'n'; // Variable to store the user's response
+
+	// Loop until the user enters a valid response ('Y' or 'N')
+	while (true) {
+		cout << "Enter another review? Y/N: ";
+		cin >> response; // Takes user input for the response
+		cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Disregards any extra input
+		// Converts the response to uppercase for consistency
+		response = toupper(response);
+
+		//Basic if/else
+		if (response == 'Y') { // User wants to add another review
+			return true;
+		}
+		else if (response == 'N') { // User does not want to add another review
+			return false;
+		}
+		else {
+			cout << "Invalid input" << endl;
+		}
+	}
 }

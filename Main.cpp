@@ -74,7 +74,7 @@ void addReviewHead(Review*& h, float rating, string comments) {
 }
 // addReviewToHead() adds a new review to the front of the linked list
 // arguments: reference to head node, rating to add, comments to add
-// returns: void
+// returns: void 
 void addReviewTail(Review*& h, float rating, string comments) {
 	//First, we start by dynamically allocating memory for new review
 	Review* newReview = new Review;
@@ -142,5 +142,5 @@ string getComments() {
 	return comments; 
 }
 bool getOneMoreReview() {
-	//add code
+	
 }

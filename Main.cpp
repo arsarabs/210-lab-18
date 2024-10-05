@@ -1,6 +1,6 @@
 // COMSC-210 | Lab 18| Anthony R. Sarabia
 // IDE used: Visual Studio
-
+ 
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>   // For rand()

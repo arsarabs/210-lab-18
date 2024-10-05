@@ -114,7 +114,21 @@ int getUserChoice() {
 
 	// Loop until the user enters a valid choice (1 or 2)
 	while (true) {
+		cout << "Which linked list method should we use?" << endl;
+		cout << "    [1] New nodes are added at the head of the linked list" << endl;
+		cout << "    [2] New nodes are added at the tail of the linked list" << endl;
+		cout << "Choice: ";
+		cin >> choice; // Takes user input for the choice
 
+		if (cin.fail() || (choice != 1 && choice != 2)) { // Validates the input
+			cin.clear(); // Clears the error flag on cin
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Disregards invalid input
+			cout << "Invalid choice. Please enter 1 or 2.\n" << endl;
+		}
+		else { // Valid input received
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Disregards any extra input
+			break; // Exits the loop
+		}
 	}
 	return choice;
 }
@@ -122,7 +136,10 @@ float validateRating() {
 	//add code
 }
 string getComments() {
-	//add code
+	string comments; 
+	cout << "Enter review comments: ";
+	getline(cin, comments); 
+	return comments; 
 }
 bool getOneMoreReview() {
 	//add code

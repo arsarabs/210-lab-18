@@ -76,13 +76,47 @@ void addReviewHead(Review*& h, float rating, string comments) {
 // arguments: reference to head node, rating to add, comments to add
 // returns: void
 void addReviewTail(Review*& h, float rating, string comments) {
- 
+	//First, we start by dynamically allocating memory for new review
+	Review* newReview = new Review;
+	//Next we assign given rating & comments to new review
+	newReview->rating = rating;
+	newReview->comments = comments;
+	//and now point the new review to nullptr
+	newReview->next = nullptr;
+
+	//check to see if list empty
+	if (!h) {
+		h = newReview;
+		return;
+	}
+	//Now, let's transverse the list
+	Review* current = h;
+
+	//And now it transverses to last review
+	while (current->next) {
+		current = current->next;
+	}
+	current->next = newReview; //This links the new review at the end of list
 }
 void deleteReview(Review*& h) {
-	//add code
+	//Pointer to transverse the list
+	Review* current = h;
+
+	while (current) {
+		Review* temp = current; // temp varibale for current review
+		current = current->next; // move to new review
+		delete temp; //deallocate memory to prevent memory leaks
+	}
+	h = nullptr; //set head to nullptr
 }
 int getUserChoice() {
-	//add code
+	int choice = 0; // Variable to store the user's choice
+
+	// Loop until the user enters a valid choice (1 or 2)
+	while (true) {
+
+	}
+	return choice;
 }
 float validateRating() {
 	//add code

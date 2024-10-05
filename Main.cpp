@@ -40,10 +40,26 @@ int main() {
 	bool flag = true;
 	
 	while (flag) {
+		float rating = validateRating();
+		string comments = getComments();
 
+		//Let's add a new review to a specific positon in list
+		if (userMethod == 1) {
+			addReviewHead(head, rating, comments);
+		}
+		else {
+			addReviewTail(head, rating, comments);
+		}
+		flag = getOneMoreReview();
 	}
 
+	//And finally, for the output!
+	cout << "\nOutputting all reviews:\n";
+	output(head, avg);
+	cout << "AVERAGE: " << fixed << setprecision(5) << avg << endl;
 	
+	//Let's be sure to prevent any potential memory leaks
+	deleteReview(head);
 
 	return 0;
 }

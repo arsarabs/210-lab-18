@@ -39,7 +39,9 @@ int main() {
 	return 0;
 }
 
-//Function Bodies
+// outputReviews() displays all reviews in the linked list and calculates the average rating
+// arguments: Node pointer to the head of the list, reference to a float to store the average
+// returns: void
 void output(Review*& h, float& avg) {
 	//define some local variables
 	int count = 1;           // Counter to number each review
@@ -58,8 +60,17 @@ void output(Review*& h, float& avg) {
 	}
 	avg = total / (count - 1); //calculate average
 }
+
 void addReviewHead(Review*& h, float rating, string comments) {
-	//add code
+	//First, we start by dynamically allocating memory for new review
+	Review* newReview = new Review;
+	//Next we assign given rating & comments to new review
+	newReview->rating = rating;
+	newReview->comments = comments;
+	//and now point the new review to the current head
+	newReview->next = h;
+	//update
+	h = newReview;
 }
 
 void addReviewTail(Review*& h, float rating, string comments) {

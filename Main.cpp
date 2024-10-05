@@ -34,7 +34,16 @@ bool getOneMoreReview();
 //main()
 int main() {
 
-	//add code
+	Review* head = nullptr; //Initlaize head of list to nullptr
+	float avg = 0.0;
+	int userMethod = getUserChoice();
+	bool flag = true;
+	
+	while (flag) {
+
+	}
+
+	
 
 	return 0;
 }
@@ -133,8 +142,22 @@ int getUserChoice() {
 	return choice;
 }
 float validateRating() {
-	float rating = 0.0;
-	return rating;
+	float rating = 0.0; //define
+	while (true) {
+		cout << "Enter review rating " << minRating << "-" << maxRating << ": ";
+		cin >> rating; // Takes user input for the rating
+
+		if (cin.fail() || rating < minRating || rating > maxRating) { // Validates the input
+			cin.clear(); // Clears the error flag on cin
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Disregards invalid input
+			cout << "Invalid rating. Please enter a number between " << minRating << " and " << maxRating << "." << endl;
+		}
+		else { // Valid input received
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Disregards any extra input
+			break; // Exits the loop
+		}
+	}
+	return rating; //return here
 }
 string getComments() {
 	string comments; 

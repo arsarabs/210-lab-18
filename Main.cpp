@@ -46,7 +46,7 @@ void output(Review*& h, float& avg) {
 	float total = 0.0;       // Variable to accumulate total ratings
 	Review* current = h;    // Pointer to traverse the list
 	//check to see if list empty
-	(!h) {
+	if (!h) { 
 		cout << "No reviews!" << endl;
 		return;
 	}
@@ -56,7 +56,7 @@ void output(Review*& h, float& avg) {
 		total += current->rating; // add current rating to total
 		current = current->next; //move to next review
 	}
-	average = total / (count - 1); //calculate average
+	avg = total / (count - 1); //calculate average
 }
 void addReviewHead(Review*& h, float rating, string comments) {
 	//add code
